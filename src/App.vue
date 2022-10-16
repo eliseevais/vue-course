@@ -1,32 +1,32 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+  <div>
+    <input type="number" v-model="operand1"/>
+    <input type="number" v-model="operand2"/>
+
+    <p>Результат: {{ result }}</p>
+
+    <button v-on:click="result = +operand1 + +operand2">+</button>
+    <button v-on:click="result = operand1 - operand2">-</button>
+    <button @click="result = operand1 / operand2">/</button>
+    <button @click="result = operand1 * operand2">*</button>
+    <button @click="result = operand1 ** operand2">^n</button>
+    <button @click="result = Math.floor(operand1/operand2)">ceil</button>
+    
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+<script>
+export default {
+  name: 'App',
+  data(){
+    return {
+      operand1: 0,
+      operand2: 0,
+      result: 0    
+    }   
   }
 }
+</script>
+
+<style lang="scss">
 </style>
